@@ -1,7 +1,7 @@
 {
-  "name": "wdio-visual-regression-service",
-  "version": "0.8.0",
-  "description": "Visual regression testing for WebdriverIO",
+  "name": "wdio-visual-regression-cucumber-service",
+  "version": "0.8.1",
+  "description": "Visual regression testing for WebdriverIO with CucumberJS",
   "main": "index.js",
   "files": [
     "index.js",
@@ -23,10 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zinserjan/wdio-visual-regression-service"
+    "url": "https://github.com/stepler/wdio-visual-regression-cucumber-service"
   },
   "bugs": {
-    "url": "https://github.com/zinserjan/wdio-visual-regression-service/issues"
+    "url": "https://github.com/stepler/wdio-visual-regression-cucumber-service/issues"
   },
   "author": "Jan-André Zinser",
   "license": "MIT",

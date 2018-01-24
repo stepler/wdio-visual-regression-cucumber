@@ -48,13 +48,30 @@ export default class VisualRegressionLauncher {
   }
 
   /**
-   * Function to be executed before a test (in Mocha/Jasmine) or a
-   * step (in Cucumber) starts.
-   * @param  {[type]} test [description]
+   * Function to be executed before a feature starts in Cucumber.
+   * @param  {[type]} feature [description]
    * @return {Promise}
    */
-  async beforeTest(test) {
-    this.currentTest = test;
+  async beforeFeature(feature) {
+    this.currentFeature = feature;
+  }
+
+  /**
+   * Function to be executed before a scenario starts in Cucumber.
+   * @param  {[type]} scenario [description]
+   * @return {Promise}
+   */
+  async beforeScenario(scenario) {
+    this.currentScenario = scenario;
+  }
+
+  /**
+   * Function to be executed before a step starts in Cucumber.
+   * @param  {[type]} step [description]
+   * @return {Promise}
+   */
+  async beforeStep(step) {
+    this.currentStep = step;
   }
 
   /**
@@ -90,7 +107,12 @@ export default class VisualRegressionLauncher {
     const runHook = this.runHook.bind(this);
 
     const getTest = () => {
-      return _.pick(this.currentTest, ['title', 'parent', 'file']);
+      return {
+        feature: this.currentFeature.name,
+        scenario: this.currentScenario.name,
+        step: this.currentStep.name,
+        file: this.currentStep.uri
+      };
     };
 
     const resolutionKeySingle = browser.isMobile ? 'orientation' : 'viewport';
